@@ -11,9 +11,17 @@ def index():
     str1 = "Hi Every One <br/> "
     return render_template('index.html') + str1 + "Ooph!"
 
-@app.route('/onlyget',methods=['POST'])
-def identity():
-    return 'Hi this is Shankar' + " <br/> i am not in others way right"
+#The method "post" only used to post that return statewment to database not to show to ours (while Running)
+@app.route('/onlypost', methods = ['POST'])
+def only_post():
+    return 'Hi this is Shankar' + " <br/> i am not in others way right" #This is not Visible while running this script
 
-if __name__=="__main__":
+@app.route('/onlyget',methods = ['GET'])
+def only_get():
+    return "This is Shankar " + " <br> It is visible " # It is Visible
+
+
+
+if __name__=="__main__":# This is Optional
     app.run(debug = True)
+    
